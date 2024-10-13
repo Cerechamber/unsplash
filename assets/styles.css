@@ -207,6 +207,7 @@ font-weight: 600;
   display: flex;
   justify-content: center;
   padding-top: 20px;
+  display: none;
 }
 
 .popup__self {
@@ -275,3 +276,50 @@ border-radius: 5px;
   overflow: hidden;
 }
 
+@media (max-width: 1023px) {
+  .popup__flex {
+    flex-wrap: wrap;
+  }
+  .popup__img {
+    width: 100%;
+    height: initial;
+    order: 2;
+  }
+  .popup__self {
+    padding: 10px;
+    overflow: auto;
+  }
+  .popup {
+    padding-top: 0;
+ 
+  }
+  .popup__bottom {
+    position: static;
+    width: 100%;
+    height: initial;
+  }
+  .popup__likes {
+    padding: 10px 0;
+  }
+  .popup__author {
+    display: flex;
+    order: 1;
+    width: 100%;
+    margin: 0 0 10px 0;
+  }
+  .popup__author-img {
+   width: 65px;
+   height: 65px;
+   margin-right: 10px;
+  }
+  .popup__texts {
+    display: flex;
+    width: calc(100% - 75px);
+  }
+  .popup__descr {
+    margin: 0 0 0 auto;
+  }
+  .popup__author-link a {
+    margin-top: 0;
+  }
+}
