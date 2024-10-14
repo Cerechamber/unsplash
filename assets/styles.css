@@ -124,6 +124,7 @@ margin-top: 5px;
   text-align: center;
   font-size: 16px;
   padding: 10px;
+  border-right: 1px solid rgba(0, 0, 0, 0.6);
 }
 .feed__right {
    width: 85%;
@@ -167,13 +168,10 @@ font-weight: 600;
 .feed__photo {
   display: block;
   height: 400px;
+  margin: 20px 20px 0 0;
 }
 .feed__photo img {
   object-fit: contain;
-}
-.feed__photo {
-  margin: 20px 20px 0 0;
-  background: rgba(0,0,0,0.2);
 }
 
 .footer {
@@ -321,5 +319,77 @@ border-radius: 5px;
   }
   .popup__author-link a {
     margin-top: 0;
+  }
+  .header__auth-center, .header__auth:last-child {
+    display: none;
+  }
+  .header__auth:first-child {
+    width: 100%;
+     display: flex;
+     padding: 15px;
+  }
+  .header__auth-photo {
+     max-width: 130px;
+     max-height: 130px;
+     min-width: 130px;
+     min-height: 130px;
+  }
+  .header .container, .footer .container {
+    padding: 0;
+  }
+  .header__texts {
+    margin-left: 30px;
+  }
+  .header__auth-text {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  .feed__card {
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .feed__left {
+    min-width: initial;
+    width: 100%;
+    border: 0;
+    margin-right: 0;
+    display: flex;
+    text-align: left;
+  }
+  .feed__right {
+    width: 100%;
+  }
+  .feed__avatar {
+    width: 75px;
+  }
+  .feed__texts {
+     margin-left: 20px;
+  }
+  .feed__photo {
+    margin-right: 0;
+    height: 250px;
+  }
+  .feed__likes-q {
+    font-size: 15px;
+  }
+  .feed__likes button {
+    width: 20px;
+    height: 18px;
+    margin-right: 10px;
+  }
+  .feed__title {
+    font-size: 35px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .footer__links {
+    display: block;
+    font-size: 18px;
+  }
+  .footer__links a {
+    width: 100%;
   }
 }
