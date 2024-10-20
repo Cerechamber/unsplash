@@ -205,7 +205,6 @@ font-weight: 600;
   display: flex;
   justify-content: center;
   padding-top: 20px;
-  display: none;
 }
 
 .popup__self {
@@ -272,6 +271,31 @@ border-radius: 5px;
   margin-top: 30px;
   max-height: 60vh;
   overflow: hidden;
+}
+
+.auth {
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth__btn {
+  width: 300px;
+  height: 80px;
+  font-size: 25px;
+  text-transform: uppercase;
+  font-family: Gilroy;
+  font-weight: 700;
+  cursor: pointer;
+  transition: .3s;
+  background: rgba(0,0,0,1);
+  color: #fff;
+  border: 0;
+  border-radius: 20px;
+}
+.auth__btn:hover {
+ opacity: .9; 
 }
 
 @media (max-width: 1023px) {
