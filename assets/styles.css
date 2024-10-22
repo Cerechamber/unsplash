@@ -105,6 +105,18 @@ margin-top: 5px;
   border-radius: 50%; 
 }
 
+.feed__spinner {
+  position: absolute;
+  width: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -55px;
+}
+
+.feed {
+  position: relative;
+}
+
 .feed__title {
   font-size: 40px;
   margin-top: 50px;

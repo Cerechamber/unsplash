@@ -1,7 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 
-const Main = ({ user }) => {
+const Layout = ({ user }) => {
 
     return (
       <>
@@ -52,4 +52,4 @@ const Main = ({ user }) => {
 )
 }
 
-export default Main;
+export default Layout;

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Routes, Route } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { actions } from '../reducers/photosReducer.js';
-import Main from './Main';
+import Layout from './Layout';
 import Feed from './Feed';
 import Popup from './Popup';
 import Auth from './Auth';
@@ -19,7 +19,7 @@ const App = ({ data }) => {
 
     return (
             <Routes>
-                <Route path='/' element={ <Main user={ state.user } /> }>
+                <Route path='/' element={ <Layout user={ state.user } /> }>
                     <Route index element={ <Auth /> } />
                     <Route path='feed' element={ <Feed photos={ state.photos } /> } />
                     <Route path='feed/:id' element={ <Popup photoId={ state.currentPhoto } /> } />
