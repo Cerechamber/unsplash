@@ -15,13 +15,13 @@ const slice = createSlice(
                 state.photos = payload;
             },
             getUser(state, { payload }) {
-                console.log(payload);
                 state.user = payload;
             },
-            getCurrentPhoto({ currentPhoto }, { payload }) {
-                currentPhoto = payload;
+            getCurrentPhoto(state, { payload }) {
+                state.currentPhoto = payload;
             },
             checkPhoto({ photos }, { payload }) {
+                
                 photos.forEach(item => {
                     if (item.id === payload) {
                         item.liked = !item.liked;

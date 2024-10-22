@@ -160,6 +160,7 @@ font-weight: 600;
 } 
 .feed__likes button img, .popup__likes button img {
   object-fit: contain;
+  transition: .3s;
 }
 
 .feed__author {
@@ -273,6 +274,18 @@ border-radius: 5px;
   overflow: hidden;
 }
 
+.popup__close {
+  position: fixed;
+  z-index: 9;
+  color: #fff;
+  font-weight: 900;
+  font-size: 40px;
+  padding: 5px;
+  right: 50px;
+  top: 50px;
+  cursor: pointer;
+}
+
 .auth {
   height: 70vh;
   display: flex;
@@ -296,6 +309,14 @@ border-radius: 5px;
 }
 .auth__btn:hover {
  opacity: .9; 
+}
+
+@media (max-width: 1200px) {
+  .popup__close {
+    right: 0;
+    top: 0;
+    font-size: 20px;
+  }
 }
 
 @media (max-width: 1023px) {
@@ -416,4 +437,11 @@ border-radius: 5px;
   .footer__links a {
     width: 100%;
   }
+  .popup__self {
+    height: fit-content;
+  }
+}
+
+.getTransp {
+  opacity: .4;
 }

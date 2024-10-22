@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useSelector } from 'react-redux';
-import { useDispatch } from 'react-redux';
+import { Routes, Route } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux';
 import { actions } from '../reducers/photosReducer.js';
 import Main from './Main';
 import Feed from './Feed';
@@ -16,14 +15,14 @@ const App = ({ data }) => {
         dispatch(actions.getPhotos(data.photos));
     }, []);
 
-    const { user } = useSelector((state) => state.photosReducer);
+    const state = useSelector((state) => state.photosReducer);
 
     return (
             <Routes>
-                <Route path='/' element={ <Main user={user} /> }>
+                <Route path='/' element={ <Main user={ state.user } /> }>
                     <Route index element={ <Auth /> } />
-                    <Route path='feed' element={ <Feed /> } />
-                    <Route path='feed/:id' element={ <Popup /> } />
+                    <Route path='feed' element={ <Feed photos={ state.photos } /> } />
+                    <Route path='feed/:id' element={ <Popup photoId={ state.currentPhoto } /> } />
                 </Route>
             </Routes>
     )

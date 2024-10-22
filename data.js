@@ -16,7 +16,8 @@
         liked: true,
         url: 'assets/images/data/1.jpg',
         description: 'asdf kjh hsgf sjhg jhsgd ggshgfhg sh hgfasjhg hk ashgf',
-        id: '1'
+        href: 'http://oblivionmachine.ru/',
+        id: 1
         },
     {
         name: 'Limp2',
@@ -26,7 +27,8 @@
     liked: true,
     url: 'assets/images/data/2.jpg',
     description: 'asdf kjh hsgf sjhg jhsgd ggshgfhg sh hgfasjhg hk ashgf',
-    id: '2'
+    href: 'http://oblivionmachine.ru/',
+    id: 2
     },
     {
         name: 'Limp3',
@@ -36,7 +38,8 @@
     liked: false,
     url: 'assets/images/data/3.jpg',
     description: 'asdf kjh hsgf sjhg jhsgd ggshgfhg sh hgfasjhg hk ashgf',
-    id: '3'
+    href: 'http://oblivionmachine.ru/',
+    id: 3
     },
     {
         name: 'Limp4',
@@ -46,7 +49,8 @@
     liked: false,
     url: 'assets/images/data/4.jpg',
     description: 'asdf kjh hsgf sjhg jhsgd ggshgfhg sh hgfasjhg hk ashgf',
-    id: '4'
+    href: 'http://oblivionmachine.ru/',
+    id: 4
     },
     {
         name: 'Limp5',
@@ -56,7 +60,8 @@
     liked: false,
     url: 'assets/images/data/5.jpg',
     description: 'asdf kjh hsgf sjhg jhsgd ggshgfhg sh hgfasjhg hk ashgf',
-    id: '5'
+    href: 'http://oblivionmachine.ru/',
+    id: 5
     },
     {
         name: 'Limp6',
@@ -66,7 +71,8 @@
     liked: false,
     url: 'assets/images/data/6.jpg',
     description: 'asdf kjh hsgf sjhg jhsgd ggshgfhg sh hgfasjhg hk ashgf',
-    id: '6'
+    href: 'http://oblivionmachine.ru/',
+    id: 6
     },
 {
     name: 'Limp7',
@@ -76,7 +82,8 @@ likes: 666,
 liked: true,
 url: 'assets/images/data/7.jpg',
 description: 'asdf kjh hsgf sjhg jhsgd ggshgfhg sh hgfasjhg hk ashgf',
-id: '7'
+href: 'http://oblivionmachine.ru/',
+id: 7
 },
 {
     name: 'Limp8',
@@ -86,7 +93,8 @@ likes: 666,
 liked: true,
 url: 'assets/images/data/8.jpg',
 description: 'asdf kjh hsgf sjhg jhsgd ggshgfhg sh hgfasjhg hk ashgf',
-id: '8'
+href: 'http://oblivionmachine.ru/',
+id: 8
 },
 {
     name: 'Limp9',
@@ -96,7 +104,8 @@ likes: 666,
 liked: true,
 url: 'assets/images/data/9.jpg',
 description: 'asdf kjh hsgf sjhg jhsgd ggshgfhg sh hgfasjhg hk ashgf',
-id: '9'
+href: 'http://oblivionmachine.ru/',
+id: 9
 },
 {
     name: 'Limp10',
@@ -106,7 +115,8 @@ likes: 666,
 liked: true,
 url: 'assets/images/data/10.jpg',
 description: 'asdf kjh hsgf sjhg jhsgd ggshgfhg sh hgfasjhg hk ashgf',
-id: '10'
+href: 'http://oblivionmachine.ru/',
+id: 10
 },
 {
     name: 'Limp11',
@@ -116,7 +126,8 @@ likes: 666,
 liked: false,
 url: 'assets/images/data/11.jpg',
 description: 'asdf kjh hsgf sjhg jhsgd ggshgfhg sh hgfasjhg hk ashgf',
-id: '11'
+href: 'http://oblivionmachine.ru/',
+id: 11
 },
 {
 name: 'Limp12',
@@ -126,7 +137,8 @@ likes: 666,
 liked: false,
 url: 'assets/images/data/12.jpg',
 description: 'asdf kjh hsgf sjhg jhsgd ggshgfhg sh hgfasjhg hk ashgf',
-id: '12'
+href: 'http://oblivionmachine.ru/',
+id: 12
 },
 {
 name: 'Limp13',
@@ -136,7 +148,8 @@ likes: 666,
 liked: true,
 url: 'assets/images/data/13.jpg',
 description: 'asdf kjh hsgf sjhg jhsgd ggshgfhg sh hgfasjhg hk ashgf',
-id: '13'
+href: 'http://oblivionmachine.ru/',
+id: 13
 },
 {
 name: 'Limp14',
@@ -146,7 +159,8 @@ likes: 666,
 liked: false,
 url: 'assets/images/data/14.jpg',
 description: 'asdf kjh hsgf sjhg jhsgd ggshgfhg sh hgfasjhg hk ashgf',
-id: '14'
+href: 'http://oblivionmachine.ru/',
+id: 14
 },
 {
 name: 'Limp15',
@@ -156,7 +170,8 @@ likes: 666,
 liked: false,
 url: 'assets/images/data/15.jpg',
 description: 'asdf kjh hsgf sjhg jhsgd ggshgfhg sh hgfasjhg hk ashgf',
-id: '15'
+href: 'http://oblivionmachine.ru/',
+id: 15
 },
 {
     name: 'Limp16',
@@ -166,7 +181,8 @@ likes: 666,
 liked: true,
 url: 'assets/images/data/16.jpg',
 description: 'asdf kjh hsgf sjhg jhsgd ggshgfhg sh hgfasjhg hk ashgf',
-id: '16'
+href: 'http://oblivionmachine.ru/',
+id: 16
 },
 {
 name: 'Limp17',
@@ -176,7 +192,8 @@ likes: 666,
 liked: true,
 url: 'assets/images/data/17.jpg',
 description: 'asdf kjh hsgf sjhg jhsgd ggshgfhg sh hgfasjhg hk ashgf',
-id: '17'
+href: 'http://oblivionmachine.ru/',
+id: 17
 },
 {
 name: 'Limp18',
@@ -186,7 +203,8 @@ likes: 666,
 liked: true,
 url: 'assets/images/data/18.jpg',
 description: 'asdf kjh hsgf sjhg jhsgd ggshgfhg sh hgfasjhg hk ashgf',
-id: '18'
+href: 'http://oblivionmachine.ru/',
+id: 18
 },
 {
 name: 'Limp19',
@@ -196,7 +214,8 @@ likes: 666,
 liked: true,
 url: 'assets/images/data/11.jpg',
 description: 'asdf kjh hsgf sjhg jhsgd ggshgfhg sh hgfasjhg hk ashgf',
-id: '19'
+href: 'http://oblivionmachine.ru/',
+id: 19
 },
   ]
 }
