@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -34,7 +35,7 @@ const Popup = ({ photoId }) => {
             <div className="popup__texts">
                <div className="popup__texts1">
             <div className="popup__author-link">
-               <a href={ currentPhoto.href } target="_blank" rel="nofollow">{ currentPhoto.name }</a>
+               <a href={ currentPhoto.href } target="_blank" rel="nofollow noreferrer">{ currentPhoto.name }</a>
             </div>
             <div className="popup__date">{ currentPhoto.date }</div>
          </div>

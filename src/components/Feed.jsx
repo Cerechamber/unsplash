@@ -1,30 +1,34 @@
-import React, { useState, useEffect } from "react";
+/* eslint-disable react/prop-types */
+import React, { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import Photo from './Photo';
 import { actions } from "../reducers/photosReducer";
 
 const Feed = ({ photos }) => {
 
-    useEffect(() => {
-        if (photos.length) {
-        window.addEventListener('scroll', () => {
-            
-                const feedHeight = document.getElementById('feed').scrollHeight;
-                if (feedHeight - 300 < window.scrollY) {
-                    alert(111);
-                }
-           
-        });
-    }
-    },[photos.length]);
-
-    
-
+    const feedRef = useRef();
     const dispatch = useDispatch();
     const [quantity, setQuantity] = useState(10);
 
+    useEffect(() => {
+        if (photos.length) {
+            const feedHeight = feedRef.current.scrollHeight;
+            let loading = false;
+            const lazyLoadPhotos = () => {
+                if (feedHeight - 480 < window.scrollY && !loading) {
+                   console.log('yes');
+                   loading = true;
+                }
+            }
+            window.addEventListener('scroll', lazyLoadPhotos, true);
+            return () => {
+                window.removeEventListener('scroll', lazyLoadPhotos, true);
+            }
+        }
+    },[photos.length]);
+
     return (
-       <section id="feed" className="feed">
+       <section className="feed" ref={feedRef}>
         <div className="container">
             <h1 className="feed__title">Photo Feed</h1>
             <div className="feed__wrapper">

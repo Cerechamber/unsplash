@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import { Outlet } from "react-router-dom";
 
@@ -42,7 +43,7 @@ const Layout = ({ user }) => {
 <footer className="footer">
    <div className="container">
       <p className="footer__links">
-         By the way, check out Oblivion Machine music on&nbsp;<a href="http://oblivionmachine.ru/" target="_blank" rel="nofollow">our official website!</a>
+         By the way, check out Oblivion Machine music on&nbsp;<a href="http://oblivionmachine.ru/" target="_blank" rel="nofollow noreferrer">our official website!</a>
       </p>
    </div>
 </footer>

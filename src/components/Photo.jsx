@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -11,7 +12,7 @@ const Photo = ({ item, checkPhoto, currentPhoto, dispatch }) => {
          </div>
          <div className="feed__texts">
             <div className="feed__author">
-               <a href={ item.href } target="_blank" rel="nofollow">{ item.name }</a>
+               <a href={ item.href } target="_blank" rel="nofollow noreferrer">{ item.name }</a>
             </div>
             <div className="feed__date">{ item.date }</div>
          </div>
