@@ -214,10 +214,11 @@ font-weight: 600;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,.8);
+  background: rgb(0,0,0);
   display: flex;
   justify-content: center;
   padding-top: 20px;
+  animation: fadeIn .3s ease-out;
 }
 
 .popup__self {
@@ -456,4 +457,38 @@ border-radius: 5px;
 
 .getTransp {
   opacity: .4;
+}
+
+.fadeOut {
+  animation: fadeOut .2s ease-out;
+}
+
+@keyframes fadeIn {
+  0% {
+      display: none;
+      opacity: .5;
+  }
+  1% {
+      display: flex;
+      opacity: .5;
+  }
+  100% {
+      display: flex;
+      opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+      display: flex;
+      opacity: 1;
+  }
+  99% {
+      display: flex;
+      opacity: .5;
+  }
+  100% {
+      display: none;
+      opacity: .5;
+  }
 }

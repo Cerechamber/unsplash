@@ -13,7 +13,7 @@ const App = ({ data }) => {
 
     useEffect(() => {
         dispatch(actions.getUser(data.author));
-        dispatch(actions.getPhotos(data.photos));
+        dispatch(actions.getPhotos(data.photos.slice(0, 7)));
     }, []);
 
     const state = useSelector((state) => state.photosReducer);
@@ -22,9 +22,9 @@ const App = ({ data }) => {
             <Routes>
                 <Route path='/' element={ <Layout user={ state.user } /> }>
                     <Route index element={ <Auth /> } />
-                    <Route path='feed' element={ <Feed photos={ state.photos } /> } />
-                    <Route path='feed/:id' element={ <Popup photoId={ state.currentPhoto } /> } />
+                    <Route path='feed' element={ <Feed photos={ state.photos } data={ data } /> } />
                 </Route>
+                <Route path='feed/:id' element={ <Popup photoId={ state.currentPhoto }  /> } />
             </Routes>
     )
 }
