@@ -1,31 +1,31 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Photo from './Photo';
 import { actions } from "../reducers/photosReducer";
+import spinner from '../../assets/images/spinner.gif';
 
 const Feed = ({ photos, data }) => {
 
     const feedRef = useRef();
     const dispatch = useDispatch();
-    const [quantity, setQuantity] = useState(13);
+    const quantity = useSelector((state) => state.photosReducer.currentQuantityPhotos);
 
     useEffect(() => {
-        setQuantity(quantity + 6);
         if (photos.length) {
             const feedHeight = feedRef.current.scrollHeight;
             let loading = false;
             const lazyLoadPhotos = () => {
                 if (feedHeight - 480 < window.scrollY && !loading && quantity <= data.photos.length) {
                    const img = document.createElement('img');
-                   img.src = '../assets/images/spinner.gif';
+                   img.src = spinner;
                    img.classList.add('feed__spinner');
                    feedRef.current.append(img);
                    setTimeout(()=>{
                      dispatch(actions.getPhotos(data.photos.slice(0, quantity)));
                      img.remove();
                    },1000);
-
+                   
                    loading = true;
                 }
             }

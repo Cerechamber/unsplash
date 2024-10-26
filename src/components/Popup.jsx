@@ -3,6 +3,7 @@ import React, {useRef} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { actions } from "../reducers/photosReducer";
+import heart from '../../assets/images/heart.png';
 
 const Popup = ({ photoId }) => {
 
@@ -20,7 +21,7 @@ const Popup = ({ photoId }) => {
            popup.current.classList.add('fadeOut');
            setTimeout(()=>{
             navigate(-1);
-           },200);
+           },100);
         }
     }
 
@@ -53,7 +54,7 @@ const Popup = ({ photoId }) => {
       <div className="popup__bottom">
          <div className="popup__likes">
             <button className="popup__unlike photo-container" onClick={() => dispatch(actions.checkPhoto(currentPhoto.id))}>
-               <img src="../assets/images/heart.png" alt="heart"
+               <img src={ heart } alt="heart"
                 className={ !currentPhoto.liked ? 'getTransp' : null }
                />
             </button>

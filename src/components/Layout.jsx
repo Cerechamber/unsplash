@@ -1,12 +1,14 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import { Outlet } from "react-router-dom";
+import back from '../../assets/images/head.jpg';
 
 const Layout = ({ user }) => {
 
     return (
       <>
         <header className="header">
+         <img src={ back } alt="background" className="background" />
    <div className="container">
       <div className="header__flex">
       <div className="header__auth">
@@ -41,6 +43,7 @@ const Layout = ({ user }) => {
 <Outlet />
 
 <footer className="footer">
+<img src={ back } alt="background" className="background" />  
    <div className="container">
       <p className="footer__links">
          By the way, check out Oblivion Machine music on&nbsp;<a href="http://oblivionmachine.ru/" target="_blank" rel="nofollow noreferrer">our official website!</a>

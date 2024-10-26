@@ -11,12 +11,12 @@ import Auth from './Auth';
 const App = ({ data }) => {
     const dispatch = useDispatch();
 
+    const state = useSelector((state) => state.photosReducer);
+
     useEffect(() => {
         dispatch(actions.getUser(data.author));
-        dispatch(actions.getPhotos(data.photos.slice(0, 7)));
+        dispatch(actions.getPhotos(data.photos.slice(0, state.currentQuantityPhotos)));
     }, []);
-
-    const state = useSelector((state) => state.photosReducer);
 
     return (
             <Routes>

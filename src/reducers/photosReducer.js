@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
     user: {},
     photos: [],
-    currentPhoto: null
+    currentPhoto: null,
+    currentQuantityPhotos: 7,
 }
 
 const slice = createSlice(
@@ -13,6 +14,7 @@ const slice = createSlice(
         reducers: {
             getPhotos(state, { payload }) {
                 state.photos = payload;
+                state.currentQuantityPhotos += 6;
             },
             getUser(state, { payload }) {
                 state.user = payload;

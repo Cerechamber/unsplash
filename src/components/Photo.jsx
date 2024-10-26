@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import { Link } from "react-router-dom";
+import heart from '../../assets/images/heart.png';
 
 const Photo = ({ item, checkPhoto, currentPhoto, dispatch }) => {
 
@@ -23,7 +24,7 @@ const Photo = ({ item, checkPhoto, currentPhoto, dispatch }) => {
         </Link>
          <div className="feed__likes">
             <button className="feed__like photo-container" onClick={() => dispatch(checkPhoto(item.id))}>
-               <img src="../assets/images/heart.png" alt="heart"
+               <img src={ heart } alt="heart"
                 className={ !item.liked ? 'getTransp' : null } 
                />
             </button>
