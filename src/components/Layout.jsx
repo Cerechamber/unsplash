@@ -25,8 +25,8 @@ const Layout = ({ user }) => {
 
       <div className="header__auth header__auth-center">
          <p className="header__auth-text">This is Oblivion App</p>
-         <p className="header__auth-text">Used Unsplash Api</p>
-         <p className="header__auth-text">Enjoy</p>
+         <p className="header__auth-text">Used some Api</p>
+         <p className="header__auth-text">Watch photos</p>
       </div>
 
       <div className="header__auth">

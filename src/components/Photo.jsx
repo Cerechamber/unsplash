@@ -13,7 +13,15 @@ const Photo = ({ item, checkPhoto, currentPhoto, dispatch }) => {
          </div>
          <div className="feed__texts">
             <div className="feed__author">
-               <a href={ item.href } target="_blank" rel="nofollow noreferrer">{ item.name }</a>
+            Photo by
+            <div>
+            <a href="https://unsplash.com/@anniespratt?utm_source=react_photo_app&utm_medium=referral"
+             target="_blank" rel="nofollow noreferrer">Annie Spratt</a>
+             </div>
+             <div>
+             on <br /> <a href="https://unsplash.com/?utm_source=react_photo_app&utm_medium=referral"
+             target="_blank" rel="nofollow noreferrer">Unsplash</a>
+             </div>
             </div>
             <div className="feed__date">{ item.date }</div>
          </div>
@@ -22,6 +30,7 @@ const Photo = ({ item, checkPhoto, currentPhoto, dispatch }) => {
         <Link to={`/feed/${item.id}`} className="feed__photo photo-container" onClick={() => dispatch(currentPhoto(item.id))}>
             <img src={ item.url } alt={ item.name } />
         </Link>
+        <a href={ item.url } target="_blank" rel="nofollow noreferrer" className="feed__originalUrl">Original photo</a>
          <div className="feed__likes">
             <button className="feed__like photo-container" onClick={() => dispatch(checkPhoto(item.id))}>
                <img src={ heart } alt="heart"

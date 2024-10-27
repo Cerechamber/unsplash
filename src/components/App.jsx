@@ -7,6 +7,7 @@ import Layout from './Layout';
 import Feed from './Feed';
 import Popup from './Popup';
 import Auth from './Auth';
+import NotFound from './NotFound';
 
 const App = ({ data }) => {
     const dispatch = useDispatch();
@@ -20,11 +21,13 @@ const App = ({ data }) => {
 
     return (
             <Routes>
+                <Route path="*" element={<NotFound />} />
                 <Route path='/' element={ <Layout user={ state.user } /> }>
                     <Route index element={ <Auth /> } />
                     <Route path='feed' element={ <Feed photos={ state.photos } data={ data } /> } />
                 </Route>
                 <Route path='feed/:id' element={ <Popup photoId={ state.currentPhoto }  /> } />
+                
             </Routes>
     )
 }

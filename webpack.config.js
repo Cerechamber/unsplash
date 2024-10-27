@@ -34,11 +34,20 @@ module.exports = {
         },
       },
       {
+        test: /\.(woff|woff2|ttf|otf|eot)$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'assets/fonts/[name][ext]'
+        } 
+      },
+      {
         test: /\.(png|jpg|gif)$/,
         use: [
           {
             loader: 'file-loader',
-            options: {}  
+            options: {
+              outputPath: 'assets/img',
+            }  
           }
         ]
       },
@@ -55,7 +64,7 @@ module.exports = {
                   [
                     "postcss-preset-env",
                     {
-                      browsers: 'last 3 versions',
+                      browsers: 'last 2 versions',
                     },
                   ],
                 ],
