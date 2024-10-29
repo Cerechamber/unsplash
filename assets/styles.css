@@ -237,7 +237,7 @@ margin-top: 5px;
 }
 
 .popup__self {
-  width: 1000px;
+  width: 90%;
 }
 
 .popup__flex {
@@ -409,6 +409,7 @@ border-radius: 5px;
   .popup__self {
     padding: 10px;
     overflow: auto;
+    width: 100%;
   }
   .popup {
     padding-top: 0;

@@ -15,8 +15,8 @@ const Photo = ({ item, checkPhoto, currentPhoto, dispatch }) => {
             <div className="feed__author">
             Photo by
             <div>
-            <a href="https://unsplash.com/@anniespratt?utm_source=react_photo_app&utm_medium=referral"
-             target="_blank" rel="nofollow noreferrer">Annie Spratt</a>
+            <a href={ item.href + '?utm_source=react_photo_app&utm_medium=referral'}
+             target="_blank" rel="nofollow noreferrer">{ item.name }</a>
              </div>
              <div>
              on <br /> <a href="https://unsplash.com/?utm_source=react_photo_app&utm_medium=referral"

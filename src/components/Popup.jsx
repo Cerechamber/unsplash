@@ -31,20 +31,20 @@ const Popup = ({ photoId }) => {
    <div className="popup__self">
       <div className="popup__flex">
          <div className="popup__img photo-container">
-            <img src={'/' + currentPhoto.url } alt={ currentPhoto.name } />
+            <img src={ currentPhoto.fullUrl } alt={ currentPhoto.name } />
             <a href={ currentPhoto.url } target="_blank" rel="nofollow noreferrer" className="popup__originalUrl">Original photo</a>
          </div>
          <div className="popup__author">
             <div className="popup__author-img photo-container">
-               <img src={'/' + currentPhoto.avatar } alt="avatar" />
+               <img src={ currentPhoto.avatar } alt="avatar" />
             </div>
             <div className="popup__texts">
                <div className="popup__texts1">
             <div className="popup__author-link">
             Photo by
             <div>
-            <a href="https://unsplash.com/@anniespratt?utm_source=react_photo_app&utm_medium=referral"
-             target="_blank" rel="nofollow noreferrer">Annie Spratt</a>
+            <a href={ currentPhoto.href + '?utm_source=react_photo_app&utm_medium=referral'}
+             target="_blank" rel="nofollow noreferrer">{ currentPhoto.name }</a>
              </div>
              <div>
              on <a href="https://unsplash.com/?utm_source=react_photo_app&utm_medium=referral"

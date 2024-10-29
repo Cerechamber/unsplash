@@ -10,7 +10,7 @@ const Feed = ({ photos, data }) => {
     const feedRef = useRef();
     const dispatch = useDispatch();
     const quantity = useSelector((state) => state.photosReducer.currentQuantityPhotos);
-
+    /*
     useEffect(() => {
         if (photos.length) {
             const feedHeight = feedRef.current.scrollHeight;
@@ -35,6 +35,7 @@ const Feed = ({ photos, data }) => {
             }
         }
     },[photos.length]);
+    */
 
     return (
        <section className="feed" ref={feedRef}>
