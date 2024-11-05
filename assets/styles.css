@@ -271,6 +271,7 @@ margin-left: 20px;
 .popup__author-img {
   width: 150px;
   border-radius: 50%;
+  margin: auto;
 }
 .popup__author-img img {
 border-radius: 50%;   
@@ -301,7 +302,7 @@ border-radius: 5px;
 .popup__descr {
   max-width: 150px;
   font-size: 15px;
-  margin-top: 30px;
+  margin: 30px auto 0 auto;
   max-height: 60vh;
   overflow: hidden;
 }

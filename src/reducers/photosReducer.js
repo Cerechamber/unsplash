@@ -4,7 +4,7 @@ const initialState = {
     user: {},
     photos: [],
     currentPhoto: null,
-    currentQuantityPhotos: 10,
+    page: 1
 }
 
 const slice = createSlice(
@@ -12,9 +12,11 @@ const slice = createSlice(
         name: 'photos',
         initialState,
         reducers: {
-            getPhotos(state, { payload }) {
-                state.photos = payload;
-                state.currentQuantityPhotos += 10;
+            getPhotos(state, { payload }) {   
+                const photos = state.photos;
+                const newPhotos = photos.concat(payload);
+                state.photos = newPhotos;
+                state.page += 1;
             },
             getUser(state, { payload }) {
                 state.user = payload;

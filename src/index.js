@@ -3,7 +3,6 @@ import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import '../assets/styles.css';
-import data from '../data';
 
 import App from './components/App.jsx';
 import store from './reducers/index.js';
@@ -14,7 +13,7 @@ const root = ReactDOM.createRoot(mountNode);
 root.render(
     <Provider store={store}>
       <BrowserRouter>
-        <App data={data} />
+        <App />
       </BrowserRouter>
     </Provider>
 );

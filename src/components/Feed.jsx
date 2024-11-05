@@ -3,30 +3,42 @@ import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Photo from './Photo';
 import { actions } from "../reducers/photosReducer";
+import photoLoader from '../unsplash.js';
 import spinner from '../../assets/images/spinner.gif';
 
-const Feed = ({ photos, data }) => {
+const Feed = () => {
 
     const feedRef = useRef();
     const dispatch = useDispatch();
-    const quantity = useSelector((state) => state.photosReducer.currentQuantityPhotos);
-    /*
+    const state = useSelector((state) => state.photosReducer);
+    const { photos } = state;
+    
     useEffect(() => {
+        const { page } = state;
+
+        const getPhoto = async () => {
+            const data = await photoLoader(page);
+            dispatch(actions.getPhotos(data));
+        }
+
+        if (!photos.length) {
+            getPhoto();
+        }
+
         if (photos.length) {
             const feedHeight = feedRef.current.scrollHeight;
             let loading = false;
             const lazyLoadPhotos = () => {
-                if (feedHeight - 480 < window.scrollY && !loading && quantity <= data.photos.length) {
+                if (feedHeight - 480 < window.scrollY && !loading) {
+                   loading = true;
                    const img = document.createElement('img');
                    img.src = spinner;
                    img.classList.add('feed__spinner');
                    feedRef.current.append(img);
-                   setTimeout(()=>{
-                     dispatch(actions.getPhotos(data.photos.slice(0, quantity)));
-                     img.remove();
-                   },1000);
-                   
-                   loading = true;
+                   setTimeout(() => {
+                    getPhoto();
+                    img.remove();
+                   }, 1000);
                 }
             }
             window.addEventListener('scroll', lazyLoadPhotos, true);
@@ -34,8 +46,9 @@ const Feed = ({ photos, data }) => {
                 window.removeEventListener('scroll', lazyLoadPhotos, true);
             }
         }
+    
     },[photos.length]);
-    */
+    
 
     return (
        <section className="feed" ref={feedRef}>
