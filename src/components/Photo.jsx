@@ -23,7 +23,7 @@ const Photo = ({ item, checkPhoto, currentPhoto, dispatch }) => {
              target="_blank" rel="nofollow noreferrer">Unsplash</a>
              </div>
             </div>
-            <div className="feed__date">{ item.date }</div>
+            <div className="feed__date">{ item.date.split('T')[0] }</div>
          </div>
       </div>
       <div className="feed__right">

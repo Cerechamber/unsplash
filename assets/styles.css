@@ -249,7 +249,7 @@ justify-content: space-between;
 margin-left: 20px;
   color: #fff;
   text-align: center;
-  padding-top: 40px;
+  padding-top: 20px;
 }
 .popup__author-link a {
   color: #fff;
@@ -401,11 +401,11 @@ border-radius: 5px;
   }
   .popup__flex {
     flex-wrap: wrap;
+    padding-top: 30px;
   }
   .popup__img {
     width: 100%;
     height: initial;
-    order: 2;
   }
   .popup__self {
     padding: 10px;
@@ -426,18 +426,20 @@ border-radius: 5px;
   }
   .popup__author {
     display: flex;
-    order: 1;
     width: 100%;
     margin: 0 0 10px 0;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   .popup__author-img {
-   width: 65px;
-   height: 65px;
-   margin-right: 10px;
+   width: 120px;
+   height: 120px;
+   margin: 0 0 20px 0;
   }
   .popup__texts {
     display: flex;
     width: calc(100% - 75px);
+    align-items: center;
   }
   .popup__descr {
     margin: 0 0 0 auto;
@@ -494,7 +496,7 @@ border-radius: 5px;
     margin-right: 0;
     display: flex;
     text-align: left;
-    align-items: flex-start;
+    align-items: center;
   }
   .feed__right {
     width: 100%;
@@ -503,7 +505,7 @@ border-radius: 5px;
     width: 75px;
   }
   .feed__texts {
-     margin-left: 20px;
+     margin-left: auto;
   }
   .feed__photo {
     margin-right: 0;

@@ -30,6 +30,7 @@ const photoLoader = (page) => {
                 return false;
               case 'success':
                 const photos = result.response.results;
+                console.log(photos);
                 const arr = [];
                 for (let i = 0; i < photos.length; i++) {
                     arr.push({

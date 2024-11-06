@@ -51,7 +51,7 @@ const Popup = ({ photoId }) => {
              target="_blank" rel="nofollow noreferrer">Unsplash</a>
              </div>
             </div>
-            <div className="popup__date">{ currentPhoto.date }</div>
+            <div className="popup__date">{ currentPhoto.date.split('T')[0] }</div>
          </div>
             { currentPhoto.description ?
             <p className="popup__descr">{ currentPhoto.description }</p> : null
