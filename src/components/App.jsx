@@ -24,15 +24,12 @@ const App = () => {
 
     return (
             <Routes>
-                <Route path="*" element={<NotFound />} />
-                
                 <Route path='/' element={ <Layout user={ state.user } /> }>
                     <Route index element={ <Auth /> } />
                     <Route path='feed' element={ <Feed /> } />
+                    <Route path='feed/:id' element={ <Popup photoId={ state.currentPhoto }  /> } />
                 </Route>
-
-                <Route path='feed/:id' element={ <Popup photoId={ state.currentPhoto }  /> } />
-                
+                <Route path="*" element={<NotFound />} />
             </Routes>
     )
 }
