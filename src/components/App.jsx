@@ -13,13 +13,16 @@ import NotFound from './NotFound';
 const App = () => {
     const dispatch = useDispatch();
     const state = useSelector((state) => state.photosReducer);
+    const { auth } = state;
 
     useEffect(() => {
         const getUser = async () => {
           const user = await userLoader('Cerechamber');
           dispatch(actions.getUser(user));
         };
-        getUser();
+
+            getUser();
+        
     }, []);
 
     return (

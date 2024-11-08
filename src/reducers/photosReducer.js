@@ -4,7 +4,8 @@ const initialState = {
     user: {},
     photos: [],
     currentPhoto: null,
-    page: 1
+    page: 1,
+    accessKey: ''
 }
 
 const slice = createSlice(
