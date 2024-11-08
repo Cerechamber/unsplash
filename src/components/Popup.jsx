@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, {useRef} from "react";
+import React, { useRef, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { actions } from "../reducers/photosReducer";
@@ -20,15 +20,17 @@ const Popup = ({ photoId }) => {
         if (!ev.target.closest('.popup__self') || ev.target.classList.contains('.popup__close')) {
            popup.current.classList.add('fadeOut');
            setTimeout(()=>{
-            navigate(-1);
+            navigate(-1, { replace: true });
            },100);
         }
     }
 
     return (
+      <>
+      { photoId ?
         <div className="popup" onClick={ closePopup  } ref={popup}>
         <div className="popup__close" title="Закрыть">X</div>
-   <div className="popup__self">
+   <div className="popup__self" >
       <div className="popup__flex">
          <div className="popup__img photo-container">
             <img src={ currentPhoto.fullUrl } alt={ currentPhoto.name } />
@@ -71,7 +73,9 @@ const Popup = ({ photoId }) => {
          </div>
       </div>
    </div>
-</div>
+</div> : 
+   navigate('/feed', {replace: true})   }
+</>
     )
 }
 

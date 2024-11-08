@@ -16,13 +16,24 @@ const Feed = () => {
     useEffect(() => {
         const { page } = state;
 
+        const loadAndSpinner = () => {
+            const img = document.createElement('img');
+            img.src = spinner;
+            img.classList.add('feed__spinner');
+            feedRef.current.append(img);
+            setTimeout(() => {
+            getPhoto();
+            img.remove();
+          }, 1000);
+        }
+
         const getPhoto = async () => {
             const data = await photoLoader(page);
             dispatch(actions.getPhotos(data));
         }
 
         if (!photos.length) {
-            getPhoto();
+            loadAndSpinner();
         }
 
         if (photos.length) {
@@ -31,14 +42,7 @@ const Feed = () => {
             const lazyLoadPhotos = () => {
                 if (feedHeight - 480 < window.scrollY && !loading) {
                    loading = true;
-                   const img = document.createElement('img');
-                   img.src = spinner;
-                   img.classList.add('feed__spinner');
-                   feedRef.current.append(img);
-                   setTimeout(() => {
-                    getPhoto();
-                    img.remove();
-                   }, 1000);
+                   loadAndSpinner();
                 }
             }
             window.addEventListener('scroll', lazyLoadPhotos, true);
