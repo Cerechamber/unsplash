@@ -3,8 +3,8 @@ import React, { useEffect } from 'react';
 import { Routes, Route } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { actions } from '../reducers/photosReducer.js';
-import unsplashLoader from '../unsplash.js';
-import { unsplashParams } from '../unsplash.js';
+import { userLoader } from '../unsplash.js';
+import photoLoader from '../unsplash.js';
 import Layout from './Layout';
 import Feed from './Feed';
 import Popup from './Popup';
@@ -14,30 +14,30 @@ import NotFound from './NotFound';
 const App = () => {
     const dispatch = useDispatch();
     const state = useSelector((state) => state.photosReducer);
-    const { accessKey } = state;
+    const unsplashToken = localStorage.getItem('unsplash-token');
 
     useEffect(() => {
-        if (accessKey) {
+        if (unsplashToken) {
         const { name } = state.user;
         const { page } = state;
 
-        const unsplashData = unsplashLoader(unsplashParams.client_id);
+        dispatch(actions.setAccessKey(unsplashToken));
     
-        const getUser = async () => {
-          const user = await unsplashData.userLoader(name);
-          dispatch(actions.getUser(user));
+            const getUser = async () => {
+            const user = await userLoader(name);
+            return user;
         };
 
         const getPhoto = async () => {
-            const data = await unsplashData.photoLoader(page);
-            dispatch(actions.getPhotos(data));
-        }
+        const data = await photoLoader(page);
+        dispatch(actions.getPhotos(data));
+     }
         
         getUser();
         getPhoto();
 
         }
-    }, [accessKey]);
+    }, [unsplashToken]);
 
     return (
             <Routes>

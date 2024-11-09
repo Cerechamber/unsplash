@@ -9,6 +9,8 @@ export const unsplashParams = {
   scope: 'public+write_likes'
 }
 
+const unsplash = createApi({ accessKey: unsplashParams.client_id });
+
 export const authUser = (code) => {
   return axios.post('https://unsplash.com/oauth/token', null, { params: {
     client_id: unsplashParams.client_id,
@@ -25,7 +27,7 @@ export const authUser = (code) => {
   });
 }
 
-export const actionPhoto = (id) => {
+export const actionPhoto = (id, token) => {
    const url = `https://api.unsplash.com/photos/${id}/like`;
    return axios.post(url, {
     headers: {
@@ -38,13 +40,8 @@ export const actionPhoto = (id) => {
     });
 }
 
-const unsplashLoader = (key) => {
-  if (!key) return;
 
-  const unsplash = createApi({ accessKey: key });
-
-  return {
-    userLoader: (name) => {
+  export const userLoader = (name) => {
       return unsplash.users.get({ username: name }).then(result => {
         switch (result.type) {
             case 'error':
@@ -62,8 +59,9 @@ const unsplashLoader = (key) => {
               }
           }
       });
-    },
-    photoLoader: (page) => {
+    }
+
+    export const photoLoader = (page) => {
       return unsplash.photos.list({ page: page, perPage: 30 }).then(result => {
         switch (result.type) {
           case 'error':
@@ -90,8 +88,5 @@ const unsplashLoader = (key) => {
         }
       });
     }
-  }
-}
 
-
-export default unsplashLoader;
+export default photoLoader;

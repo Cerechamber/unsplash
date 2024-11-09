@@ -5,6 +5,7 @@ import { useSearchParams, useNavigate } from "react-router-dom";
 import Photo from './Photo';
 import { actions } from "../reducers/photosReducer";
 import { authUser } from "../unsplash";
+import photoLoader from "../unsplash";
 import spinner from '../../assets/images/spinner.gif';
 
 const Feed = ({ photos }) => {
@@ -15,26 +16,26 @@ const Feed = ({ photos }) => {
     const { page } = state;
     const [searchParams, setSearchParams] = useSearchParams();
     const navigate = useNavigate();
-
+    
     useEffect(() => {
-        const code = searchParams.get('code');
+
+        if (!state.accessKey) {
+            const code = searchParams.get('code');
         if (code && !photos.length) {
             setSearchParams({});
             const fetchUser = async () => {
                 const res = await authUser(code);
                 if (res) {
+                    localStorage.setItem('unsplash-token', res.data.access_token);
                     dispatch(actions.getUser({ name: res.data.username }));
-                    dispatch(actions.setAccessKey(res.data.access_token));
                 }
             }
             fetchUser();
         } else if (!photos.length) {
             navigate('/', { replace: true });
         }
-        
-    },[]);
-    /*
-    useEffect(() => {
+    }
+
         const loadAndSpinner = () => {
             const img = document.createElement('img');
             img.src = spinner;
@@ -47,7 +48,7 @@ const Feed = ({ photos }) => {
         }
 
         const getPhoto = async () => {
-            const data = await photoLoader(page);
+            const data = await unsplashData.photoLoader(page);
             dispatch(actions.getPhotos(data));
         }
 
@@ -70,7 +71,7 @@ const Feed = ({ photos }) => {
             }
         }
     },[page]);
-    */
+
     
 
     return (
@@ -82,7 +83,6 @@ const Feed = ({ photos }) => {
                         return (
                             <Photo key={ photo.id }
                                 item={ photo } 
-                                checkPhoto={ actions.checkPhoto } 
                                 currentPhoto={ actions.getCurrentPhoto } 
                                 dispatch={ dispatch }
                                 token={ state.accessKey }

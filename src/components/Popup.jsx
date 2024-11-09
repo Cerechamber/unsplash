@@ -1,13 +1,11 @@
 /* eslint-disable react/prop-types */
 import React, { useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { actions } from "../reducers/photosReducer";
-import heart from '../../assets/images/heart.png';
+import LikeButton from "./LikeButton";
 
-const Popup = ({ photoId }) => {
+const Popup = ({ photoId, token }) => {
 
-    const dispatch = useDispatch();
     const navigate = useNavigate();
     const popup = useRef();
 
@@ -15,6 +13,9 @@ const Popup = ({ photoId }) => {
         const popupPhoto = state.photosReducer.photos.find(({ id }) => id === photoId);
         return popupPhoto;
     });
+
+    const { accessKey } = useSelector(state => state.photosReducer);
+
 
     const closePopup = (ev) => {
         if (!ev.target.closest('.popup__self') || ev.target.classList.contains('.popup__close')) {
@@ -28,7 +29,7 @@ const Popup = ({ photoId }) => {
     return (
       <>
       { photoId ?
-        <div className="popup" onClick={ closePopup  } ref={popup}>
+        <div className="popup" onClick={ closePopup } ref={popup}>
         <div className="popup__close" title="Закрыть">X</div>
    <div className="popup__self" >
       <div className="popup__flex">
@@ -64,17 +65,14 @@ const Popup = ({ photoId }) => {
       </div>
       <div className="popup__bottom">
          <div className="popup__likes">
-            <button className="popup__unlike photo-container" onClick={() => dispatch(actions.checkPhoto(currentPhoto.id))}>
-               <img src={ heart } alt="heart"
-                className={ !currentPhoto.liked ? 'getTransp' : null }
-               />
-            </button>
+            <LikeButton id={ currentPhoto.id } token={ accessKey } liked={ currentPhoto.liked } />
             <div className="popup__likes-q">{ currentPhoto.likes }</div>
          </div>
       </div>
    </div>
 </div> : 
-   navigate('/feed', {replace: true})   }
+   navigate('/feed', {replace: true});
+  }
 </>
     )
 }
