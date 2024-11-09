@@ -1,7 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
+import auth from '../../assets/images/auth.jpg';
 
 const initialState = {
-    user: {},
+    user: {
+        avatar: auth,
+        description: 'Авторизуйтесь'
+    },
     photos: [],
     currentPhoto: null,
     page: 1,
@@ -25,13 +29,16 @@ const slice = createSlice(
             getCurrentPhoto(state, { payload }) {
                 state.currentPhoto = payload;
             },
-            checkPhoto({ photos }, { payload }) {
-                
+            checkPhoto(state, { payload }) {
+                const photos = state.photos;
                 photos.forEach(item => {
                     if (item.id === payload) {
                         item.liked = !item.liked;
                     }
                 })
+            },
+            setAccessKey(state, { payload }) {
+                state.accessKey = payload;
             }
         }
     }

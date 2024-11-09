@@ -1,9 +1,16 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import { Link } from "react-router-dom";
+import { actionPhoto } from "../unsplash";
 import heart from '../../assets/images/heart.png';
 
-const Photo = ({ item, checkPhoto, currentPhoto, dispatch }) => {
+const Photo = ({ item, checkPhoto, currentPhoto, dispatch, token }) => {
+
+   const handleClickHeart = async (id) => {
+      const doneLike = await actionPhoto(id.split('--')[0], token);
+      console.log(doneLike);
+      doneLike ?  dispatch(checkPhoto(id)) : console.log('Не удалось совершить действие');
+   }
 
       return (
         <div className="feed__card">
@@ -32,7 +39,7 @@ const Photo = ({ item, checkPhoto, currentPhoto, dispatch }) => {
         </Link>
         <a href={ item.url } target="_blank" rel="nofollow noreferrer" className="feed__originalUrl">Original photo</a>
          <div className="feed__likes">
-            <button className="feed__like photo-container" onClick={() => dispatch(checkPhoto(item.id))}>
+            <button className="feed__like photo-container" onClick={() => handleClickHeart(item.id)}>
                <img src={ heart } alt="heart"
                 className={ !item.liked ? 'getTransp' : null } 
                />

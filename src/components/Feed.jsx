@@ -1,54 +1,40 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useSearchParams } from "react-router-dom";
-import axios from "axios";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import Photo from './Photo';
 import { actions } from "../reducers/photosReducer";
-import photoLoader from '../unsplash.js';
+import { authUser } from "../unsplash";
 import spinner from '../../assets/images/spinner.gif';
 
-const Feed = () => {
+const Feed = ({ photos }) => {
 
     const feedRef = useRef();
     const dispatch = useDispatch();
     const state = useSelector((state) => state.photosReducer);
-    const { photos } = state;
-    const { auth } = state;
-/*
+    const { page } = state;
     const [searchParams, setSearchParams] = useSearchParams();
+    const navigate = useNavigate();
 
     useEffect(() => {
-
         const code = searchParams.get('code');
-        if (code) {
+        if (code && !photos.length) {
             setSearchParams({});
-
-            axios.post('https://unsplash.com/oauth/token', null, { params: {
-                client_id: 'LqbZvFH2hpBOzvKmfgC3uQWQgQ4Im8w3z4pFgRNMWVE',
-                client_secret: 'TwP_hMa5BCc-zf6YqJra09QfB9p5Ke9mmxa8YQn-5Fk',
-                redirect_uri: 'http://brutal.oblivionmachine.ru/feed',
-                code: code,
-                grant_type: 'authorization_code'
-              }})
-              .then(function (response) {
-                console.log(response);
-              })
-              .catch(function (error) {
-                console.log(error);
-              });
-
-        } else {
-            console.log('Аутентификация провалилась');
+            const fetchUser = async () => {
+                const res = await authUser(code);
+                if (res) {
+                    dispatch(actions.getUser({ name: res.data.username }));
+                    dispatch(actions.setAccessKey(res.data.access_token));
+                }
+            }
+            fetchUser();
+        } else if (!photos.length) {
+            navigate('/', { replace: true });
         }
         
     },[]);
-    */
-    
+    /*
     useEffect(() => {
-        
-            const { page } = state;
-
         const loadAndSpinner = () => {
             const img = document.createElement('img');
             img.src = spinner;
@@ -65,7 +51,7 @@ const Feed = () => {
             dispatch(actions.getPhotos(data));
         }
 
-        if (!photos.length) {
+        if (page === 1) {
             loadAndSpinner();
         }
 
@@ -83,9 +69,8 @@ const Feed = () => {
                 window.removeEventListener('scroll', lazyLoadPhotos, true);
             }
         }
-        
-    
-    },[photos.length]);
+    },[page]);
+    */
     
 
     return (
@@ -100,6 +85,7 @@ const Feed = () => {
                                 checkPhoto={ actions.checkPhoto } 
                                 currentPhoto={ actions.getCurrentPhoto } 
                                 dispatch={ dispatch }
+                                token={ state.accessKey }
                             />
                         )
                 } )}
@@ -110,16 +96,3 @@ const Feed = () => {
 }
 
 export default Feed;
-
-/*
-const url = `https://api.unsplash.com/photos/${image.id}/like`;
-            axios.post(url, {
-                headers: {
-                    Authorization: "Client-ID my_client_id_here"
-                }
-            }).then(photo => {
-                console.log('like photo')
-            }).catch(error => {
-                console.error(error)
-            })
-*/

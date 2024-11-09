@@ -16,10 +16,16 @@ const Layout = ({ user }) => {
             <img src={user.avatar} alt="photo user" />
          </div>
          <div className="header__texts">
+            { user.name ?
+            <>
             <div className="header__auth-text header__auth-name">{user.name}</div>
             <div className="header__auth-text header__auth-mail">{user.place}</div>
             <div className="header__auth-text header__auth-photos">Photos: {user.photos}</div>
             <div className="header__auth-text header__auth-likes">Likes: {user.likes}</div>
+            </>
+            : null
+         }
+            
          </div>
       </div>
 

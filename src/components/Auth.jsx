@@ -1,17 +1,16 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { unsplashParams } from "../unsplash";
 
 const Auth = () => {
-    const navigate = useNavigate();
-    const client_id = 'LqbZvFH2hpBOzvKmfgC3uQWQgQ4Im8w3z4pFgRNMWVE';
-    const redirect_uri = 'http://brutal.oblivionmachine.ru/feed';
-    const scope = 'public+write_likes';
+    let url = 'https://unsplash.com/oauth/authorize?';
+    url += `client_id=${unsplashParams.client_id}`;
+    url += `&redirect_uri=${unsplashParams.redirect_uri}`;
+    url += `&response_type=code&scope=${unsplashParams.scope}`;
     return (
         <div className="auth">
             <button className="auth__btn"
              onClick={() =>
-                //location.href = `https://unsplash.com/oauth/authorize?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=code&scope=${scope}`}>
-               navigate('/feed')}>
+                location.href = url}>
                 Авторизоваться
             </button>
         </div>
