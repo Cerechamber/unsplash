@@ -1,30 +1,42 @@
 @font-face {
-  font-family: "Gilroy";
-  src: url("font/Gilroy-Regular.eot?#iefix") format("embedded-opentype"), url("font/Gilroy-Regular.woff2") format("woff2"), url("font/Gilroy-Regular.woff") format("woff");
+  font-family: 'Gilroy';
+  src:
+    url('font/Gilroy-Regular.eot?#iefix') format('embedded-opentype'),
+    url('font/Gilroy-Regular.woff2') format('woff2'),
+    url('font/Gilroy-Regular.woff') format('woff');
   font-style: normal;
   font-weight: 400;
   font-display: fallback;
 }
 
 @font-face {
-  font-family: "Gilroy";
-  src: url("font/Gilroy-Medium.eot?#iefix") format("embedded-opentype"), url("font/Gilroy-Medium.woff2") format("woff2"), url("font/Gilroy-Medium.woff") format("woff");
+  font-family: 'Gilroy';
+  src:
+    url('font/Gilroy-Medium.eot?#iefix') format('embedded-opentype'),
+    url('font/Gilroy-Medium.woff2') format('woff2'),
+    url('font/Gilroy-Medium.woff') format('woff');
   font-style: normal;
   font-weight: 500;
   font-display: fallback;
 }
 
 @font-face {
-  font-family: "Gilroy";
-  src: url("font/Gilroy-Semibold.eot?#iefix") format("embedded-opentype"), url("font/Gilroy-Semibold.woff2") format("woff2"), url("font/Gilroy-Semibold.woff") format("woff");
+  font-family: 'Gilroy';
+  src:
+    url('font/Gilroy-Semibold.eot?#iefix') format('embedded-opentype'),
+    url('font/Gilroy-Semibold.woff2') format('woff2'),
+    url('font/Gilroy-Semibold.woff') format('woff');
   font-style: normal;
   font-weight: 600;
   font-display: fallback;
 }
 
 @font-face {
-  font-family: "Gilroy";
-  src: url("font/Gilroy-Bold.eot?#iefix") format("embedded-opentype"), url("font/Gilroy-Bold.woff2") format("woff2"), url("font/Gilroy-Bold.woff") format("woff");
+  font-family: 'Gilroy';
+  src:
+    url('font/Gilroy-Bold.eot?#iefix') format('embedded-opentype'),
+    url('font/Gilroy-Bold.woff2') format('woff2'),
+    url('font/Gilroy-Bold.woff') format('woff');
   font-style: normal;
   font-weight: 700;
   font-display: fallback;
@@ -35,7 +47,8 @@
   font-family: Gilroy;
 }
 
-html, body {
+html,
+body {
   font-size: 20px;
   line-height: 1.3;
   font-family: Gilroy;
@@ -47,8 +60,13 @@ html, body {
   margin: auto;
   padding: 0 20px;
 }
-.header, .footer {
+.header,
+.footer {
   position: relative;
+}
+
+header + footer {
+  margin-top: 75vh;
 }
 
 .background {
@@ -70,15 +88,15 @@ html, body {
 
 .header__auth {
   text-align: center;
-  background: rgba(255,255,255,0.6);
+  background: rgba(255, 255, 255, 0.6);
   padding: 20px;
 }
 .header__auth {
   width: 250px;
 }
 .header__auth-text {
-margin-top: 5px;
-  font-size: 16px
+  margin-top: 5px;
+  font-size: 16px;
 }
 .header__auth-name {
   font-weight: 700;
@@ -101,7 +119,6 @@ margin-top: 5px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  
 }
 
 .photo-container img {
@@ -111,7 +128,7 @@ margin-top: 5px;
 }
 
 .header__auth-photo img {
-  border-radius: 50%; 
+  border-radius: 50%;
 }
 
 .feed__spinner {
@@ -133,7 +150,7 @@ margin-top: 5px;
 
 .feed__card {
   display: flex;
-  border: 1px solid rgba(0,0,0,0.6);
+  border: 1px solid rgba(0, 0, 0, 0.6);
   border-radius: 25px;
   margin-bottom: 40px;
 }
@@ -148,7 +165,7 @@ margin-top: 5px;
   border-right: 1px solid rgba(0, 0, 0, 0.6);
 }
 .feed__right {
-   width: 85%;
+  width: 85%;
 }
 .feed__avatar {
   width: 100%;
@@ -168,7 +185,8 @@ margin-top: 5px;
 .feed__author div {
   margin: 10px 0;
 }
-.feed__likes, .popup__likes {
+.feed__likes,
+.popup__likes {
   display: flex;
   align-items: center;
   background: #fff;
@@ -176,7 +194,8 @@ margin-top: 5px;
   justify-content: center;
   border-radius: 25px;
 }
-.feed__likes button, .popup__likes button {
+.feed__likes button,
+.popup__likes button {
   width: 32px;
   height: 25px;
   padding: 0;
@@ -184,10 +203,11 @@ margin-top: 5px;
   background: 0;
   cursor: pointer;
   margin-right: 20px;
-} 
-.feed__likes button img, .popup__likes button img {
+}
+.feed__likes button img,
+.popup__likes button img {
   object-fit: contain;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 .feed__author {
@@ -211,7 +231,7 @@ margin-top: 5px;
   padding: 20px;
   text-align: center;
   font-weight: 500;
-  background: rgba(255,255,255,.6);
+  background: rgba(255, 255, 255, 0.6);
   width: fit-content;
   margin: auto;
   min-height: 100px;
@@ -229,11 +249,11 @@ margin-top: 5px;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgb(0,0,0);
+  background: rgb(0, 0, 0);
   display: flex;
   justify-content: center;
   padding-top: 20px;
-  animation: fadeIn .3s ease-out;
+  animation: fadeIn 0.3s ease-out;
   z-index: 9;
 }
 
@@ -242,12 +262,12 @@ margin-top: 5px;
 }
 
 .popup__flex {
-display: flex;
-justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
 .popup__author {
-margin-left: 20px;
+  margin-left: 20px;
   color: #fff;
   text-align: center;
   padding-top: 20px;
@@ -259,7 +279,7 @@ margin-left: 20px;
   margin-top: 5px;
 }
 .popup__author-link div {
-   margin: 5px 0;
+  margin: 5px 0;
 }
 .popup__author-link a:hover {
   text-decoration: underline;
@@ -275,20 +295,20 @@ margin-left: 20px;
   margin: auto;
 }
 .popup__author-img img {
-border-radius: 50%;   
+  border-radius: 50%;
 }
 
 .popup__img {
   height: 90vh;
-   width: calc(100% - 170px);
-   position: relative;
+  width: calc(100% - 170px);
+  position: relative;
 }
 .popup__img img {
   object-fit: contain;
 }
 
 .popup__likes {
-border-radius: 5px;
+  border-radius: 5px;
 }
 
 .popup__bottom {
@@ -335,14 +355,14 @@ border-radius: 5px;
   font-family: Gilroy;
   font-weight: 700;
   cursor: pointer;
-  transition: .3s;
-  background: rgba(0,0,0,1);
+  transition: 0.3s;
+  background: rgba(0, 0, 0, 1);
   color: #fff;
   border: 0;
   border-radius: 20px;
 }
 .auth__btn:hover {
- opacity: .9; 
+  opacity: 0.9;
 }
 
 .feed__originalUrl {
@@ -360,14 +380,15 @@ border-radius: 5px;
   transform: translateX(-50%);
   bottom: 10px;
   z-index: 9;
-    padding: 5px;
-    border-radius: 7px;
+  padding: 5px;
+  border-radius: 7px;
   color: #000;
-  background: rgba(255, 255, 255, .5);
+  background: rgba(255, 255, 255, 0.5);
   font-size: 12px;
 }
-.popup__originalUrl:hover, .feed__originalUrl:hover {
-    text-decoration: none;
+.popup__originalUrl:hover,
+.feed__originalUrl:hover {
+  text-decoration: none;
 }
 
 .NotFound {
@@ -387,7 +408,8 @@ border-radius: 5px;
     margin: 0;
     font-size: 16px;
   }
-  .feed__author, .feed__author a{
+  .feed__author,
+  .feed__author a {
     font-size: 16px;
   }
 }
@@ -433,9 +455,9 @@ border-radius: 5px;
     justify-content: center;
   }
   .popup__author-img {
-   width: 120px;
-   height: 120px;
-   margin: 0 0 20px 0;
+    width: 120px;
+    height: 120px;
+    margin: 0 0 20px 0;
   }
   .popup__texts {
     display: flex;
@@ -454,29 +476,32 @@ border-radius: 5px;
   }
   .popup__date {
     font-size: 16px;
-}
-  .feed__author, .feed__date {
+  }
+  .feed__author,
+  .feed__date {
     text-align: center;
   }
   .popup__author-link a {
     margin-top: 0;
     font-size: 16px;
   }
-  .header__auth-center, .header__auth:last-child {
+  .header__auth-center,
+  .header__auth:last-child {
     display: none;
   }
   .header__auth:first-child {
     width: 100%;
-     display: flex;
-     padding: 15px;
+    display: flex;
+    padding: 15px;
   }
   .header__auth-photo {
-     max-width: 130px;
-     max-height: 130px;
-     min-width: 130px;
-     min-height: 130px;
+    max-width: 130px;
+    max-height: 130px;
+    min-width: 130px;
+    min-height: 130px;
   }
-  .header .container, .footer .container {
+  .header .container,
+  .footer .container {
     padding: 0;
   }
   .header__texts {
@@ -506,7 +531,7 @@ border-radius: 5px;
     width: 75px;
   }
   .feed__texts {
-     margin-left: auto;
+    margin-left: auto;
   }
   .feed__photo {
     margin-right: 0;
@@ -541,27 +566,27 @@ border-radius: 5px;
 }
 
 .getTransp {
-  opacity: .4;
+  opacity: 0.4;
 }
 
 .fadeOut {
-  animation: fadeOut .3s ease-out;
+  animation: fadeOut 0.3s ease-out;
 }
 
 @keyframes fadeIn {
   0% {
-      opacity: .5;
+    opacity: 0.5;
   }
   100% {
-      opacity: 1;
+    opacity: 1;
   }
 }
 
 @keyframes fadeOut {
   0% {
-      opacity: 1;
+    opacity: 1;
   }
   100% {
-      opacity: .75;
+    opacity: 0.75;
   }
 }

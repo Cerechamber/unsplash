@@ -11,9 +11,9 @@ const mountNode = document.getElementById('root');
 const root = ReactDOM.createRoot(mountNode);
 
 root.render(
-    <Provider store={store}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </Provider>
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>,
 );

@@ -2,7 +2,7 @@ process.env.NODE_ENV = 'production';
 //process.env.NODE_ENV = 'development';
 
 const path = require('path');
-const devMode = process.env.NODE_ENV !== "production";
+const devMode = process.env.NODE_ENV !== 'production';
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
@@ -37,8 +37,8 @@ module.exports = {
         test: /\.(woff|woff2|ttf|otf|eot)$/,
         type: 'asset/resource',
         generator: {
-          filename: 'assets/fonts/[name][ext]'
-        } 
+          filename: 'assets/fonts/[name][ext]',
+        },
       },
       {
         test: /\.(png|jpg|gif)$/,
@@ -47,22 +47,22 @@ module.exports = {
             loader: 'file-loader',
             options: {
               outputPath: 'assets/img',
-            }  
-          }
-        ]
+            },
+          },
+        ],
       },
       {
         test: /\.css$/i,
         use: [
-          devMode ? "style-loader" : MiniCssExtractPlugin.loader,
+          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
           {
-            loader: "postcss-loader",
+            loader: 'postcss-loader',
             options: {
               postcssOptions: {
                 plugins: [
                   [
-                    "postcss-preset-env",
+                    'postcss-preset-env',
                     {
                       browsers: 'last 2 versions',
                     },
