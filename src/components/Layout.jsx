@@ -4,6 +4,11 @@ import { Outlet } from 'react-router-dom';
 import back from '../../assets/images/head.jpg';
 
 const Layout = ({ user }) => {
+  const logOut = () => {
+    localStorage.removeItem('unsplash-token');
+    localStorage.removeItem('unsplash-user');
+    location.href = '/';
+  };
   return (
     <>
       <header className='header'>
@@ -52,6 +57,12 @@ const Layout = ({ user }) => {
                 <p className='header__auth-text header__auth-bio'>
                   {user.description}
                 </p>
+              ) : null}
+
+              {user.name ? (
+                <button className='header__auth-out' onClick={logOut}>
+                  Разлогиниться
+                </button>
               ) : null}
             </div>
           </div>
