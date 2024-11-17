@@ -27,6 +27,7 @@ const Feed = ({ token }) => {
           if (res) {
             localStorage.setItem('unsplash-token', res.data.access_token);
             localStorage.setItem('unsplash-user', res.data.username);
+            dispatch(actions.getUser({}));
           }
         };
         fetchUser();
